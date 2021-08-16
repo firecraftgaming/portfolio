@@ -1,0 +1,51 @@
+.pages {
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.page {
+  width: 100vw;
+  height: 100vh;
+
+  --margin: calc(var(--cover) - 1);
+  --divider: min(1, var(--margin));
+  --actual-progress: calc((var(--gprogress) - var(--location)) / var(--divider));
+  --local-progress: clamp(0, var(--actual-progress), 1);
+
+  --top: calc(var(--margin) * var(--local-progress));
+  --bottom: calc(var(--margin) - var(--top));
+
+  margin-top: calc(var(--top) * 100vh);
+  margin-bottom: calc(var(--bottom) * 100vh);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  --oscale: calc(1.25 - var(--progress) * 2);
+  --scale: clamp(0, var(--oscale), 1);
+
+  transform: scale(var(--scale), var(--scale));
+}
+.page__title {
+  width: 650px;
+  height: 280px;
+
+  font-size: 120px;
+  line-height: 140px;
+
+  text-align: center;
+}
+.page__testbg {
+  position: absolute;
+  z-index: -5;
+
+  width: 50%;
+  height: 100%;
+
+  background-color: #F07606;
+  transform: translateX(calc(-50% + var(--local-progress) * 100%));
+}
