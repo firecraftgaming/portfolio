@@ -1,3 +1,63 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 10;
+
+  width: 100vw;
+  height: 80px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 3px solid var(--accent);
+  background-color: var(--background);
+}
+
+.navbar__logo {
+  margin-left: 20px;
+
+  width: 40px;
+}
+
+.navbar__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+
+  list-style: none;
+}
+
+.navbar__item {
+  margin-right: 50px;
+}
+.navbar__link {
+  color: #FFF !important;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+.pages__wrapper {
+  flex-grow: 1;
+  overflow: auto;
+}
 .pages {
   width: 100vw;
 
@@ -30,14 +90,26 @@
 
   transform: scale(var(--scale), var(--scale));
 }
-.page__title {
-  width: 650px;
-  height: 280px;
+.page::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
 
-  font-size: 120px;
-  line-height: 140px;
+  width: calc((1 - var(--local-progress)) * 100vw);
+  height: 1px;
+  background: var(--accent);
+}
+
+.page__title {
+  width: auto;
+  height: auto;
+
+  font-size: 80px;
+  line-height: 100px;
 
   text-align: center;
+  white-space: pre;
 }
 .page__testbg {
   position: absolute;
